@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Minha Notas</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo center">
+          <img src="https://img.icons8.com/bubbles/2x/brain.png" alt="" width="130" height="130">
+        </a>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col s12 center">
+          <br><br><br><br>
+          <a id="rm" class="waves-effect waves-light btn-large red lighten-2"><i class="material-icons left">chevron_left</i></a>
+          <h1 id="title_name" class="red-text text-darken-4 center" style="display:inline">&nbsp&nbsp</h1>
+          <a id="add" class="waves-effect waves-light btn-large red lighten-2"><i class="material-icons left">chevron_right</i></a>
+        </div>
+      </div>
+      <div id="schedule" class="row">
+        <!-- local reservado para os cards -->
+      </div>
+
+      <!--   ALALALALAL -->
+
+    <div class="row">
+        <div class="col s1 offset-s11">
+            <div class="fixed-action-btn">
+                <a class="btn-floating btn-large red">
+                    <i class="large material-icons">menu</i>
+                </a>
+                <ul>
+                    <li><a class="btn-floating blue darken-1" href="graphics.html"><i class="material-icons">insert_chart</i></a></li>
+                   <li><a class="btn-floating waves-effect waves-light btn modal-trigger red" href="#modal-form"><i class="material-icons">add</i></a></li>
+                </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modal-form" class="modal red lighten-5">
+      <div class="modal-content center">
+        <h3>Preencha o formulário</h3>
+        <br>
+        <form id="form">
+          <br>
+          <div class="input-field col s12">
+            <label class="center"><h4>Titulo (categoria)</h4></label>
+            <br>
+            <input placeholder="Escreva a categoria aqui" id="titulo" name="titulo" type="text" class="validate">
+          </div>
+          <br><br>
+          <div class="input-field col s12">
+            <label class="center"><h4>Tema</h4></label>
+            <br>
+            <input placeholder="Escreva o tema aqui" id="theme" name="theme" type="text" class="validate">
+          </div>
+          <br><br>
+          <div class="input-field col s12">
+            <label class="center"><h4>Anotações</h4></label>
+            <br>
+            <textarea placeholder="Escreva sua anotações aqui" id="anotation" name="anotation" class="materialize-textarea"></textarea>
+          </div>
+          <br><br>
+          <button id="form-submit" class="btn waves-effect waves-light red" type="submit">Salvar
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer red lighten-5">
+        <button id="modal-close" href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</button>
+      </div>
+    </div>
+
+    <div id="modal-form-update" class="modal red lighten-5">
+      <div class="modal-content center">
+        <h3>Preencha o formulário</h3>
+        <br>
+        <form id="form-update">
+          <br>
+          <div class="input-field col s12">
+            <label class="center"><h4>Titulo (categoria)</h4></label>
+            <br>
+            <input placeholder="Escreva a categoria aqui" id="titulo" name="titulo" type="text" class="validate">
+          </div>
+          <br><br>
+          <div class="input-field col s12">
+            <label class="center"><h4>Tema</h4></label>
+            <br>
+            <input placeholder="Escreva o tema aqui" id="theme" name="theme" type="text" class="validate">
+          </div>
+          <br><br>
+          <div class="input-field col s12">
+            <label class="center"><h4>Anotações</h4></label>
+            <br>
+            <textarea placeholder="Escreva sua anotações aqui" id="anotation" name="anotation" class="materialize-textarea"></textarea>
+          </div>
+          <br><br>
+          <button id="form-submit" class="btn waves-effect waves-light red" type="submit">Salvar
+            <i class="material-icons right">send</i>
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer red lighten-5">
+        <button id="modal-close" href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</button>
+      </div>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    <script src="notes.js" type="text/javascript"></script>
+  </body>
+</html>

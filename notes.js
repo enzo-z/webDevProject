@@ -1,0 +1,102 @@
+function del(id){
+    console.log(id);
+    $.ajax({
+      url: 'card_services.php',
+      headers: {id : id},
+      type: 'DELETE',
+      success: function(response){
+        console.log(response);
+        show_cards(current_id_title);
+      }
+    });
+  }
+  function update(id){
+    console.log(id);
+    $('#form-update').submit(function(event){
+      event.preventDefault();
+      var $form = $(this),
+        title_name = $form.find("input[name='titulo']").val();
+        theme = $form.find("input[name='theme']").val();
+        anotation = $form.find("textarea[name='anotation']").val();
+      $.get('titles_services.php', {title_name : title_name}, function(response){
+        if(response){
+          id_title = response;
+          //alterar
+          $.post('card_services.php', {id : id, theme : theme, anotation : anotation, id_title : id_title, cond : 42}, function(){
+            show_cards(current_id_title);
+            $('#modal-close-update').trigger('click');
+            $form.find("input[name='titulo']").val("");
+            $form.find("input[name='theme']").val("");
+            $form.find("textarea[name='anotation']").val("");
+          });
+        }else{
+          alert("Por favor, entre com uma categoria já criada");
+        }
+      });
+    });
+  }
+  function show_cards(id, first = false){
+    $.getJSON('card_services.php', {current_id_title : id}, function(response){
+      let card = "";
+      $.each(response, function(key, val){
+        if(val != "response"){
+          card += "<div class='col s4'><div class='card blue-grey darken-1'><div class='card-content white-text'><span class='card-title'>" + val['tema'] + "</span><p>" + val['texto'] + "</p></div><div class='card-action'><a name='edit' onclick='update(" + val['id'] + ")' class='waves-effect waves-light modal-trigger' href='#modal-form-update'>Editar</a><a name='delete' onclick='del(" + val['id'] + ")'>Deletar</a></div></div></div>";
+        }
+      });
+      if(first == true){
+        $('#schedule').append(card);
+      }else{
+        $('#schedule').html(card);
+      }
+    });
+  }
+  
+  var current_id_title = 1;
+  
+  $(document).ready(function(){ //Função necessária para manipulação da DOM pelo JQuery
+    $('.modal').modal();
+    $('.fixed-action-btn').floatingActionButton();
+    show_cards(current_id_title, true);
+    $.get('titles_services.php', {id_title : current_id_title}, function(response){
+      $('#title_name').text(response);
+    });
+    $('#rm').click(function(){
+      $.get('titles_services.php', {id_title : (current_id_title - 1)}, function(response){
+        if(response){
+          current_id_title = current_id_title - 1;
+          $('#title_name').text(response);
+          show_cards(current_id_title);
+        }
+      });
+    });
+    $('#add').click(function(){
+      $.get('titles_services.php', {id_title : (current_id_title + 1)}, function(response){
+        if(response){
+          current_id_title = current_id_title + 1;
+          $('#title_name').text(response);
+          show_cards(current_id_title);
+        }
+      });
+    });
+    $('#form').submit(function(event){
+      event.preventDefault();
+      var $form = $(this),
+        title_name = $form.find("input[name='titulo']").val();
+        theme = $form.find("input[name='theme']").val();
+        anotation = $form.find("textarea[name='anotation']").val();
+      $.get('titles_services.php', {title_name : title_name}, function(response){
+        if(response){
+          id_title = response;
+          $.post('card_services.php', {title_name : title_name, theme : theme, anotation : anotation, id_title : id_title}, function(){
+            show_cards(current_id_title);
+            $('#modal-close').trigger('click');
+            $form.find("input[name='titulo']").val("");
+            $form.find("input[name='theme']").val("");
+            $form.find("textarea[name='anotation']").val("");
+          });
+        }else{
+          alert("Por favor, entre com uma categoria já criada");
+        }
+      });
+    });
+  });  
