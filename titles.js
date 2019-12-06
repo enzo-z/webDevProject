@@ -14,13 +14,13 @@ $(document).ready(function () {
     $("#form-title-delete").submit(function (e) { 
         e.preventDefault();
         var $formTitleDelete = $(this),
-            $titleDeleted= $formTitleDelete.find("input[name='titleCreated']").val();
-        $.ajax({
-            url: "creation_titles.php",
-            headers: {titleDeleted : $titleDeleted},
-            type: "DELETE", function(){
-            $formTitleDelete.find("input[name='titleCreated']").val("");
+            $titleDeleted= $formTitleDelete.find("input[name='titleDeleted']").val();
+            console.log("SUCESSO?"+titleDeleted);
+        $.post('creation_titles.php', {titleDeleted : $titleDeleted, type : 'delete'}, function(response){
+            if(response == 'error'){ ////Poderia substituir isso por um modal, e esse modal teria algo para deletar todas as anotações do título
+                alert("VOCÊ SÓ PODE DELETAR UM TÍTULO/CATEGORIA SE ELE NÃO POSSUIR ANOTAÇÕES!");
             }
+            $formTitleDelete.find("input[name='titleDeleted']").val("");
         });
     });
 });

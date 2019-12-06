@@ -33,9 +33,9 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 }
 if($_SERVER['REQUEST_METHOD'] == 'DELETE'){
   //$headerStringValue = $_SERVER['HTTP_ID'];
-  $insert = $pdo->prepare("DELETE FROM notes WHERE id = :id ");
-  $insert->bindValue(":id", intval($_SERVER['HTTP_ID']));
-  $insert->execute();
-  $insert=NULL;
+  $delete = $pdo->prepare("DELETE FROM notes WHERE id = :id ");
+  $delete->bindValue(":id", intval($_SERVER['HTTP_ID']));
+  $delete->execute();
+  $delete=NULL;
 }
 $pdo = NULL;

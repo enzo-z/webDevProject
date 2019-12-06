@@ -8,6 +8,7 @@ function buscaTitulos(){
         $registeredTitles = ($busca->fetchAll(PDO::FETCH_ASSOC));    
         //Query de Inserção
         $busca = NULL;
+        $pdo = NULL;
         return $registeredTitles;
     }
 }
@@ -35,8 +36,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $insert->bindValue(":titleCreated", $_POST['titleCreated']);
             $insert->execute();
             $insert = NULL;
+            $pdo = NULL;
         }
     }
 }
 
-
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if($_POST['type'] == 'delete'){
+        include('connectionpdo.php');
+        $delete = $pdo->prepare("DELETE FROM titulos WHERE nome = :titleDeleted");
+        $delete->bindValue(":titleDeleted", $_POST['titleDeleted']);
+        $delete->execute();
+        if($delete->rowCount() < 1){
+            echo 'error';
+        }
+        $delete = NULL;
+        $pdo = NULL;
+    }
+}
