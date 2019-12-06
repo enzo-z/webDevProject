@@ -6,9 +6,12 @@ Obtivemos ajuda também de Luiz Miguel Viana [(LuizMVB)](https://github.com/Luiz
 
 # Explicando o funcionamento do site 
 
+#### OBS: Mudar os dados do arquivo connectionpdo.php para se conectar ao banco de dados. O script do SQL para criação de BD está em script.sql!
+
 Trata-se de um bloco de notas, algo numa tentativa de ser simples e bem-feito. Ambos os integrantes ficaram atolados em outro projeto durante grande parte do fim desse ano (a startup [coleta-se](https://github.com/vvesly/coleta-se) - _DÊ UMA OLHADA LÁ, PROFESSOR!_), e por isso talvez não tenhamos conseguido fazer algo mais complexo. Por exemplo, a ideia original era o projeto do repositório [projetoCorneta](https://github.com/enzo-z/projetoCorneta), porém a ideia estacou e o projeto ficou estagnado. 
 
 Cada anotação está dentro de um título, que funciona como uma categoria de anotações. Por exemplo, você pode criar um título "Trabalho" para coisas do trabalho, e criar anotações dentro deste título. Criar título de "Assuntos Pessoas", "Festividades" e assim vai...
+
 
 ## Botões e telas [CRUD] - 3° BIM
 
