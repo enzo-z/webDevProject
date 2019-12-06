@@ -1,12 +1,10 @@
 <?php
-//if($_SERVER['REQUEST_METHOD'] == 'POST'){
 function buscaTitulos(){
     include("connectionpdo.php");
     $busca = $pdo->prepare("SELECT nome FROM titulos");
     $busca->execute();
     if($busca->rowCount() > 0){
         $registeredTitles = ($busca->fetchAll(PDO::FETCH_ASSOC));    
-        //Query de Inserção
         $busca = NULL;
         $pdo = NULL;
         return $registeredTitles;
@@ -17,7 +15,6 @@ function comparaTitulos($titleCreated, $registeredTitles){
     for ($i=0; $i < sizeof($registeredTitles) ; $i++) { 
         if($titleCreated != strtolower($registeredTitles[$i]['nome'])){
             $cond = true;
-
         }
         else{
             $cond = false;
@@ -41,7 +38,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 }
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+if($_SERVER['REQUEST_METHOD'] == 'POST'){ //Não consegui fazer o $.ajax com type DELETE funcionar
     if($_POST['type'] == 'delete'){
         include('connectionpdo.php');
         $delete = $pdo->prepare("DELETE FROM titulos WHERE nome = :titleDeleted");

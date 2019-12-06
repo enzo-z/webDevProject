@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
     $busca->execute();
     if($busca->rowCount() > 0){
       $arr = $busca->fetch(PDO::FETCH_ASSOC);
-      echo $arr['nome']; //ELE ESTÁ RETORNANDO AQUI;
+      echo $arr['nome'];
     }
   }else if(!empty($_GET['title_name'])){
     $busca = $pdo->prepare("SELECT id FROM titulos WHERE nome = :name");

@@ -14,7 +14,6 @@
         </a>
       </div>
     </nav>
-
     <div class="container-fluid">
       <br>
       <br>
@@ -24,7 +23,6 @@
             <a class="waves-effect waves-light btn green lighten-1 modal-trigger" href="#modal-title-create">Criar título (categoria)</a>
             <a class="waves-effect waves-light btn red lighten-1 modal-trigger" href="#modal-title-delete">Deletar título (categoria)</a>
           <br><br>
-          <!--<a id="rm" class="waves-effect waves-light btn-large red lighten-2"><i class="material-icons left">chevron_left</i></a>-->
           <h1 id="title_name" class="red-text text-darken-4 center" style="display:inline;">&nbsp&nbsp</h1>
           <a id="add" class="waves-effect waves-light btn-large red lighten-2" style="margin-left: 10px;"><i class="material-icons left">chevron_right</i></a>
         </div>
@@ -33,8 +31,8 @@
         <!-- local reservado para os cards -->
       </div>
 
-      <!--   ALALALALAL -->
-
+      
+    <!--Botões flutuantes-->
     <div class="row">
         <div class="col s1 offset-s11">
             <div class="fixed-action-btn">
@@ -49,8 +47,8 @@
         </div>
       </div>
     </div>
-
-    <div id="modal-form" class="modal red lighten-5"> <!--Formulário de ciração de card-->
+    <!--Formulário de criação de card-->
+    <div id="modal-form" class="modal red lighten-5"> 
       <div class="modal-content center">
         <h3>Preencha o formulário</h3>
         <br>
@@ -83,8 +81,8 @@
         <button id="modal-close" href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</button>
       </div>
     </div>
-
-    <div id="modal-form-update" class="modal red lighten-5"> <!--Formulário de atualização de card-->
+    <!--Formulário de atualização/alterar o card [update]-->
+    <div id="modal-form-update" class="modal red lighten-5"> 
       <div class="modal-content center">
         <h3>Preencha o formulário</h3>
         <br>
@@ -117,7 +115,7 @@
         <button id="modal-close" href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</button>
       </div>
     </div>
-
+    <!--Modal/pop-up de criação de titulo-->
     <div id="modal-title-create" class="modal">
         <div class="modal-content">
           <form id='form-title-create'>
@@ -126,6 +124,7 @@
           </form>
         </div>
     </div>
+    <!--Modal/pop-up de exclusão de titulo-->
     <div id="modal-title-delete" class="modal">
         <div class="modal-content">
           <form id='form-title-delete'>
@@ -134,9 +133,7 @@
           </form>
         </div>
     </div>
-
-
-
+  <!--Inserções de scripts-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <script src="notes.js" type="text/javascript"></script>
