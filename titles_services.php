@@ -17,6 +17,14 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
       $arr = $busca->fetch(PDO::FETCH_ASSOC);
       echo $arr['id'];
     }
+  }else{
+    $busca = $pdo->prepare("SELECT * FROM titulos");
+    $busca->execute();
+    if($busca->rowCount() > 0 ){
+      $arr = $busca->fetchAll(PDO::FETCH_ASSOC);
+      echo json_encode($arr);
+    }
   }
   $busca = NULL;
+  $pdo = NULL;
 }

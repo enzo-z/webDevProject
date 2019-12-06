@@ -23,11 +23,10 @@ function del(id){
           id_title = response;
           //alterar
           $.post('card_services.php', {id : id, theme : theme, anotation : anotation, id_title : id_title, cond : 42}, function(){
-            show_cards(current_id_title);
-            $('#modal-close-update').trigger('click');
             $form.find("input[name='titulo']").val("");
             $form.find("input[name='theme']").val("");
             $form.find("textarea[name='anotation']").val("");
+            document.location.reload();
           });
         }else{
           alert("Por favor, entre com uma categoria já criada");
@@ -52,6 +51,7 @@ function del(id){
   }
   
   var current_id_title = 1;
+  var current_id_title2 = 1;
   
   $(document).ready(function(){ //Função necessária para manipulação da DOM pelo JQuery
     $('.modal').modal();
@@ -74,15 +74,18 @@ function del(id){
         }
       });
     });*/
-    $('#add').click(function(){       //2          //1 + 1
-      $.get('titles_services.php', {id_title : (current_id_title + 1)}, function(response){
-        if(response){
-          current_id_title = current_id_title + 1;
-          $('#title_name').text(response);
-          show_cards(current_id_title);
+    $('#add').click(function(){       //2          //1 + 1 {id_title : (current_id_title + 1)}
+      $.getJSON('titles_services.php', function(response){
+        //console.log(response[0]['nome']);
+        console.log("Length="+response.length +"| current_id_title2="+current_id_title2);
+        if(current_id_title2 < response.length){
+          $('#title_name').text(response[current_id_title2]['nome']);
+          show_cards(response[current_id_title2]['id']);
+          current_id_title2 = current_id_title2 + 1;
         }
         else{ //Pequena gambiarra para fazer o looping dos botões
-          current_id_title = 0;
+          console.log("NÃO OBTEVE RESPOSTA E ENTROU NO ELSE");
+          current_id_title2 = 0;
           $('#add').click();
         }
       });
@@ -97,8 +100,7 @@ function del(id){
         if(response){
           id_title = response;
           $.post('card_services.php', {title_name : title_name, theme : theme, anotation : anotation, id_title : id_title}, function(){
-            show_cards(current_id_title);
-            $('#modal-close').trigger('click');
+            show_cards(id_title);
             $form.find("input[name='titulo']").val("");
             $form.find("input[name='theme']").val("");
             $form.find("textarea[name='anotation']").val("");
@@ -106,6 +108,7 @@ function del(id){
         }else{
           alert("Por favor, entre com uma categoria já criada");
         }
+        
       });
     });
   });  

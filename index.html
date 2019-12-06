@@ -21,7 +21,8 @@
       <div class="row">
         <br>
         <div class="col s12 center">
-            <a class="waves-effect waves-light btn red lighten-2 modal-trigger" href="#modal-title">Criar título (categoria)</a>
+            <a class="waves-effect waves-light btn green lighten-1 modal-trigger" href="#modal-title-create">Criar título (categoria)</a>
+            <a class="waves-effect waves-light btn red lighten-1 modal-trigger" href="#modal-title-delete">Deletar título (categoria)</a>
           <br><br>
           <!--<a id="rm" class="waves-effect waves-light btn-large red lighten-2"><i class="material-icons left">chevron_left</i></a>-->
           <h1 id="title_name" class="red-text text-darken-4 center" style="display:inline;">&nbsp&nbsp</h1>
@@ -73,7 +74,7 @@
             <textarea placeholder="Escreva sua anotações aqui" id="anotation" name="anotation" class="materialize-textarea"></textarea>
           </div>
           <br><br>
-          <button id="form-submit" class="btn waves-effect waves-light red" type="submit">Salvar
+          <button id="form-submit" class="modal-close btn waves-effect waves-light red" type="submit">Salvar
             <i class="material-icons right">send</i>
           </button>
         </form>
@@ -107,7 +108,7 @@
             <textarea placeholder="Escreva sua anotações aqui" id="anotation" name="anotation" class="materialize-textarea"></textarea>
           </div>
           <br><br>
-          <button id="form-submit" class="btn waves-effect waves-light red" type="submit">Salvar
+          <button id="form-submit" class="modal-close btn waves-effect waves-light red" type="submit">Editar
             <i class="material-icons right">send</i>
           </button>
         </form>
@@ -117,11 +118,19 @@
       </div>
     </div>
 
-    <div id="modal-title" class="modal">
+    <div id="modal-title-create" class="modal">
         <div class="modal-content">
-          <form id='form-title'>
+          <form id='form-title-create'>
             <input type="text" name="titleCreated" id="titleCreated" placeholder="Insira a categoria/título a ser criado">
-            <button class="btn waves-effect waves-light red" type="submit">Criar título</button>
+            <button class="modal-close btn waves-effect waves-light red" type="submit">Criar título</button>
+          </form>
+        </div>
+    </div>
+    <div id="modal-title-delete" class="modal">
+        <div class="modal-content">
+          <form id='form-title-delete'>
+            <input type="text" name="titleDeleted" id="titleDeleted" placeholder="Insira a categoria/título a ser deletado">
+            <button class="modal-close btn waves-effect waves-light red" type="submit">Deletar título</button>
           </form>
         </div>
     </div>
@@ -131,5 +140,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
     <script src="notes.js" type="text/javascript"></script>
+    <script src="titles.js" type="text/javascript"></script>
   </body>
 </html>

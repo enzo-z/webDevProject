@@ -38,3 +38,4 @@ if($_SERVER['REQUEST_METHOD'] == 'DELETE'){
   $insert->execute();
   $insert=NULL;
 }
+$pdo = NULL;
