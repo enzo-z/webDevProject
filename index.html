@@ -16,12 +16,16 @@
     </nav>
 
     <div class="container-fluid">
+      <br>
+      <br>
       <div class="row">
+        <br>
         <div class="col s12 center">
-          <br><br><br><br>
-          <a id="rm" class="waves-effect waves-light btn-large red lighten-2"><i class="material-icons left">chevron_left</i></a>
-          <h1 id="title_name" class="red-text text-darken-4 center" style="display:inline">&nbsp&nbsp</h1>
-          <a id="add" class="waves-effect waves-light btn-large red lighten-2"><i class="material-icons left">chevron_right</i></a>
+            <a class="waves-effect waves-light btn red lighten-2 modal-trigger" href="#modal-title">Criar título (categoria)</a>
+          <br><br>
+          <!--<a id="rm" class="waves-effect waves-light btn-large red lighten-2"><i class="material-icons left">chevron_left</i></a>-->
+          <h1 id="title_name" class="red-text text-darken-4 center" style="display:inline;">&nbsp&nbsp</h1>
+          <a id="add" class="waves-effect waves-light btn-large red lighten-2" style="margin-left: 10px;"><i class="material-icons left">chevron_right</i></a>
         </div>
       </div>
       <div id="schedule" class="row">
@@ -45,13 +49,13 @@
       </div>
     </div>
 
-    <div id="modal-form" class="modal red lighten-5">
+    <div id="modal-form" class="modal red lighten-5"> <!--Formulário de ciração de card-->
       <div class="modal-content center">
         <h3>Preencha o formulário</h3>
         <br>
         <form id="form">
           <br>
-          <div class="input-field col s12">
+          <div class="input-field col s12" id='title-options'>
             <label class="center"><h4>Titulo (categoria)</h4></label>
             <br>
             <input placeholder="Escreva a categoria aqui" id="titulo" name="titulo" type="text" class="validate">
@@ -79,7 +83,7 @@
       </div>
     </div>
 
-    <div id="modal-form-update" class="modal red lighten-5">
+    <div id="modal-form-update" class="modal red lighten-5"> <!--Formulário de atualização de card-->
       <div class="modal-content center">
         <h3>Preencha o formulário</h3>
         <br>
@@ -111,6 +115,15 @@
       <div class="modal-footer red lighten-5">
         <button id="modal-close" href="#!" class="modal-close waves-effect waves-green btn-flat">Fechar</button>
       </div>
+    </div>
+
+    <div id="modal-title" class="modal">
+        <div class="modal-content">
+          <form id='form-title'>
+            <input type="text" name="titleCreated" id="titleCreated" placeholder="Insira a categoria/título a ser criado">
+            <button class="btn waves-effect waves-light red" type="submit">Criar título</button>
+          </form>
+        </div>
     </div>
 
 

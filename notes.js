@@ -59,22 +59,31 @@ function del(id){
     show_cards(current_id_title, true);
     $.get('titles_services.php', {id_title : current_id_title}, function(response){
       $('#title_name').text(response);
-    });
-    $('#rm').click(function(){
+  });
+    /*$('#rm').click(function(){
+      //console.log("dentro da rm:"+current_id_title);
       $.get('titles_services.php', {id_title : (current_id_title - 1)}, function(response){
         if(response){
           current_id_title = current_id_title - 1;
           $('#title_name').text(response);
           show_cards(current_id_title);
         }
+        else{ //Pequena gambiarrinha para fazer o loop dos botões [botão esquerdo] [NÃO ESTÁ PRONTA]
+          console.log(current_id_title);
+          $('#add').click();
+        }
       });
-    });
-    $('#add').click(function(){
+    });*/
+    $('#add').click(function(){       //2          //1 + 1
       $.get('titles_services.php', {id_title : (current_id_title + 1)}, function(response){
         if(response){
           current_id_title = current_id_title + 1;
           $('#title_name').text(response);
           show_cards(current_id_title);
+        }
+        else{ //Pequena gambiarra para fazer o looping dos botões
+          current_id_title = 0;
+          $('#add').click();
         }
       });
     });
